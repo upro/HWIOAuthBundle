@@ -11,6 +11,8 @@
 
 namespace HWI\Bundle\OAuthBundle\OAuth\ResourceOwner;
 
+use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
+
 /**
  * SalesforceResourceOwner
  *
