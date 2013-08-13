@@ -44,7 +44,7 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
     {
         $url = $this->normalizeUrl($this->getOption('infos_url'));
 
-        $content = $this->doGetUserInformationRequest($url, array('access_token' => $accessToken))->getContent();
+        $content = $this->doGetUserInformationRequest($url, array('access_token' => $accessToken['access_token']))->getContent();
 
         $response = $this->getUserResponse();
         $response->setResponse($content);
