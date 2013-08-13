@@ -24,7 +24,7 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
     protected $options = array(
         'authorization_url' => 'https://login.salesforce.com/services/oauth2/authorize',
         'access_token_url'  => 'https://login.salesforce.com/services/oauth2/token',
-        'infos_url'         => 'https://na1.salesforce.com/services/data/v28.0/chatter/users/me',
+        'infos_url'         => '/services/data/v28.0/chatter/users/me',
         'scope'             => 'full'
     );
 
@@ -42,7 +42,7 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
      */
     public function getUserInformation(array $accessToken, array $extraParameters = array())
     {
-        $url = $this->getOption('infos_url');
+        $url = $accessToken['instance_url'] . $this->getOption('infos_url');
 
         $content = $this->doGetUserInformationRequest($url, array('access_token' => $accessToken['access_token']))->getContent();
 
