@@ -42,9 +42,9 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
      */
     public function getUserInformation(array $accessToken, array $extraParameters = array())
     {
-        $url = $this->normalizeUrl($this->getOption('infos_url');
+        $url = $this->normalizeUrl($this->getOption('infos_url'));
 
-        $content = $this->doGetUserInformationRequest($url, array('accessToken' => $accessToken))->getContent();
+        $content = $this->doGetUserInformationRequest($url, array('access_token' => $accessToken))->getContent();
 
         $response = $this->getUserResponse();
         $response->setResponse($content);
@@ -59,6 +59,6 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
      */
     protected function doGetUserInformationRequest($url, array $parameters = array())
     {
-        return $this->httpRequest($url, null, array('Authorization: OAuth ' . $parameters['accessToken']));
+        return $this->httpRequest($url, null, array('Authorization: OAuth ' . $parameters['access_token']));
     }
 }
