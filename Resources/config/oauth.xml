@@ -33,6 +33,7 @@
         <parameter key="hwi_oauth.resource_owner.jira.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\JiraResourceOwner</parameter>
         <parameter key="hwi_oauth.resource_owner.linkedin.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\LinkedinResourceOwner</parameter>
         <parameter key="hwi_oauth.resource_owner.qq.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\QQResourceOwner</parameter>
+        <parameter key="hwi_oauth.resource_owner.salesforce.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\SalesforceResourceOwner</parameter>
         <parameter key="hwi_oauth.resource_owner.sensio_connect.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\SensioConnectResourceOwner</parameter>
         <parameter key="hwi_oauth.resource_owner.sina_weibo.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\SinaWeiboResourceOwner</parameter>
         <parameter key="hwi_oauth.resource_owner.stack_exchange.class">HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\StackExchangeResourceOwner</parameter>
@@ -138,6 +139,8 @@
         <service id="hwi_oauth.abstract_resource_owner.linkedin" class="%hwi_oauth.resource_owner.linkedin.class%"
                  parent="hwi_oauth.abstract_resource_owner.oauth2" abstract="true" />
         <service id="hwi_oauth.abstract_resource_owner.qq" class="%hwi_oauth.resource_owner.qq.class%"
+                 parent="hwi_oauth.abstract_resource_owner.oauth2" abstract="true" />
+        <service id="hwi_oauth.abstract_resource_owner.salesforce" class="%hwi_oauth.resource_owner.salesforce.class%"
                  parent="hwi_oauth.abstract_resource_owner.oauth2" abstract="true" />
         <service id="hwi_oauth.abstract_resource_owner.sensio_connect" class="%hwi_oauth.resource_owner.sensio_connect.class%"
                  parent="hwi_oauth.abstract_resource_owner.oauth2" abstract="true" />
