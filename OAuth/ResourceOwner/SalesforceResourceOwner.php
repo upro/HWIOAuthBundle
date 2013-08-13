@@ -37,22 +37,28 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
         'realname'        => 'name'
     );
 
-    public function getUserInformation($accessToken)
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserInformation(array $accessToken, array $extraParameters = array())
     {
-        $url = $this->getOption('infos_url');
+        $url = $this->normalizeUrl($this->getOption('infos_url');
 
-        $content = $this->doGetUserInformationRequest($url, array(), $accessToken)->getContent();
+        $content = $this->doGetUserInformationRequest($url, array('accessToken' => $accessToken))->getContent();
 
         $response = $this->getUserResponse();
         $response->setResponse($content);
         $response->setResourceOwner($this);
-        $response->setAccessToken($accessToken);
+        $response->setOAuthToken(new OAuthToken($accessToken));
 
         return $response;
     }
 
-    protected function doGetUserInformationRequest($url, array $parameters = array(), $access_token = '')
+    /**
+     * {@inheritDoc}
+     */
+    protected function doGetUserInformationRequest($url, array $parameters = array())
     {
-        return $this->httpRequest($url, null, array('Authorization: OAuth ' . $access_token));
+        return $this->httpRequest($url, null, array('Authorization: OAuth ' . $parameters['accessToken']));
     }
 }
