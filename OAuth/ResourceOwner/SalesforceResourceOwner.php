@@ -36,7 +36,9 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
     protected $paths = array(
         'identifier'      => 'id',
         'nickname'        => 'username',
-        'realname'        => 'name'
+        'realname'        => 'name',
+        'email'           => 'email',
+        'profilepicture'  => 'photo.standardEmailPhotoUrl'
     );
 
     /**
