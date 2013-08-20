@@ -38,7 +38,9 @@ class SalesforceResourceOwner extends GenericOAuth2ResourceOwner
         'nickname'        => 'username',
         'realname'        => 'name',
         'email'           => 'email',
-        'profilepicture'  => 'photo.standardEmailPhotoUrl'
+        'profilepicture'  => 'photo.standardEmailPhotoUrl',
+        'firstname'       => 'firstName',
+        'lastname'        => 'lastName'
     );
 
     /**
